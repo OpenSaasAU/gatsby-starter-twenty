@@ -5,22 +5,16 @@ import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import { Navbar, Content, Footer } from '../styles'
 
 export default () => {
-  const [hideOnScroll, setHideOnScroll] = useState(true)
-  const [headerClass, setHeaderClass] = useState(true)
+  const [hideOnScroll, setHideOnScroll] = useState(false)
   const rendersCount = useRef(0)
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
       const isShow = currPos.y > prevPos.y
-      console.log(currPos.y)
       if (currPos.y > -508) {
-        setHeaderClass("alt") 
         setHideOnScroll(false)
-        console.log("set alt")
       } else {
-        setHeaderClass("reveal") 
         setHideOnScroll(true)
-        console.log("set reveal")
       }
     },
     [hideOnScroll],
