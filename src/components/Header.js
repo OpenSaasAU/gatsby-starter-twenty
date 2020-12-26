@@ -1,0 +1,65 @@
+
+import React, { useState, useRef, useMemo, Fragment } from 'react'
+import { useScrollPosition } from '@n8tb1t/use-scroll-position'
+
+import { Navbar, Content, Footer } from '../styles'
+
+export default () => {
+  const [hideOnScroll, setHideOnScroll] = useState(true)
+  const [headerClass, setHeaderClass] = useState(true)
+  const rendersCount = useRef(0)
+
+  useScrollPosition(
+    ({ prevPos, currPos }) => {
+      const isShow = currPos.y > prevPos.y
+      console.log(currPos.y)
+      if (currPos.y > -508) {
+        setHeaderClass("alt") 
+        setHideOnScroll(false)
+        console.log("set alt")
+      } else {
+        setHeaderClass("reveal") 
+        setHideOnScroll(true)
+        console.log("set reveal")
+      }
+    },
+    [hideOnScroll],
+    false,
+    false,
+    300
+  )
+return useMemo( () => (
+  <Navbar show={hideOnScroll}>
+  <header id="header">
+					<h1 id="logo"><a href="#">Twenty <span>by HTML5 UP</span></a></h1>
+					<nav id="nav">
+						<ul>
+							<li className="current"><a href="#">Welcome</a></li>
+							<li className="submenu">
+								<a href="#">Layouts</a>
+								<ul>
+									<li><a href="left-sidebar.html">Left Sidebar</a></li>
+									<li><a href="right-sidebar.html">Right Sidebar</a></li>
+									<li><a href="no-sidebar.html">No Sidebar</a></li>
+									<li><a href="contact.html">Contact</a></li>
+									<li className="submenu">
+										<a href="#">Submenu</a>
+										<ul>
+											<li><a href="#">Dolore Sed</a></li>
+											<li><a href="#">Consequat</a></li>
+											<li><a href="#">Lorem Magna</a></li>
+											<li><a href="#">Sed Magna</a></li>
+											<li><a href="#">Ipsum Nisl</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><a href="#" className="button primary">Sign Up</a></li>
+						</ul>
+					</nav>
+  </header>
+  </Navbar>
+),
+[hideOnScroll]
+)
+}
