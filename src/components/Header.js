@@ -32,10 +32,10 @@ return useMemo( () => (
 							<li className="submenu">
 								<a href="#">Layouts</a>
 								<ul>
-									<li><a href="left-sidebar.html">Left Sidebar</a></li>
-									<li><a href="right-sidebar.html">Right Sidebar</a></li>
-									<li><a href="no-sidebar.html">No Sidebar</a></li>
-									<li><a href="contact.html">Contact</a></li>
+									<li><a href="left-sidebar">Left Sidebar</a></li>
+									<li><a href="right-sidebar">Right Sidebar</a></li>
+									<li><a href="no-sidebar">No Sidebar</a></li>
+									<li><a href="contact">Contact</a></li>
 									<li className="submenu">
 										<a href="#">Submenu</a>
 										<ul>
