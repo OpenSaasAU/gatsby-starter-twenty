@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
+//import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
 
 const useFormInput = initialValue => {
     const [value, setValue] = useState(initialValue)
@@ -19,7 +19,7 @@ export default function Form() {
     const message = useFormInput("")
     const name = useFormInput("")
 
-    const { executeRecaptcha } = useGoogleReCaptcha()
+    //const { executeRecaptcha } = useGoogleReCaptcha()
     const [token, setToken] = useState("")
     const [notification, setNotification] = useState("")
 
@@ -33,9 +33,9 @@ export default function Form() {
         e.preventDefault()
 
         // Check if the captcha was skipped or not
-        if (!executeRecaptcha) {
-            return
-        }
+       // if (!executeRecaptcha) {
+        //    return
+        //}
 
         // handle empty fields just in case
         if (!email.value) {
@@ -47,8 +47,9 @@ export default function Form() {
         }
 
         // This is the same as grecaptcha.execute on traditional html script tags
-        const result = await executeRecaptcha("homepage")
-        setToken(result) //--> grab the generated token by the reCAPTCHA
+        //const result = await executeRecaptcha("homepage")
+        const result = "no Captcha"
+        //setToken(result) //--> grab the generated token by the reCAPTCHA
        
         // Prepare the data for the server, specifically body-parser
         const data = JSON.stringify({ name: nameVal, email: emailVal, subject: subjectVal, message: messageVal, captcha: result })
@@ -70,10 +71,10 @@ export default function Form() {
     }
 
     return (
-        <div className="8u 12u$(small)">
+        <div className="content">
             <form onSubmit={handleSubmit}>
-                <div className="row uniform 50%">
-                    <div className="6u 12u$(xsmall)">
+                <div className="row gtr-50">
+                    <div className="col-6 col-12-mobile">
                         <input
                             type="text"
                             name="name"
@@ -82,7 +83,7 @@ export default function Form() {
                             {...name} required
                         />
                     </div>
-                    <div className="6u 12u$(xsmall)">
+                    <div className="col-6 col-12-mobile">
                         <input
                             type="email"
                             name="email"
@@ -91,7 +92,10 @@ export default function Form() {
                             {...email} required
                         />
                     </div>
-                    <div className="12u">
+                    <div class="col-12">
+												<input type="text" name="subject" placeholder="Subject" />
+											</div>
+                    <div className="col-12">
                         <textarea
                             name="message"
                             id="message"
@@ -101,11 +105,12 @@ export default function Form() {
                         ></textarea>
                     </div>
                 </div>
-                <ul className="actions" style={{ marginTop: 30 }}>
+                <div class="col-12"><ul className="buttons">
                     <li>
-                        <input type="submit" value="Send Message" />
+                        <input type="submit" class="special" value="Send Message" />
                     </li>
-                </ul>
+                </ul></div>
+                
 
                 {notification && <span>{notification}</span>}
             </form>
