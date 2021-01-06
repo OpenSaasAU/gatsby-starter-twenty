@@ -4,7 +4,6 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 (function($) {
-	console.log("Bla Bla")
 	var	$window = $(window),
 		$body = $('body'),
 		$header = $('#header'),
@@ -44,7 +43,7 @@
 		// Button.
 			$(
 				'<div id="navButton">' +
-					'<a href="#navPanel" class="toggle"></a>' +
+					'<a href="#navPanel" className="toggle"></a>' +
 				'</div>'
 			)
 				.appendTo($body);
@@ -75,16 +74,10 @@
 					.css('transition', 'none');
 
 	// Header.
-		console.log(browser.mobile)
-		console.log($header.hasClass('alt'))
-		console.log($banner.length)
 		if (!browser.mobile
 		&&	$header.hasClass('alt')
 		&&	$banner.length > 0) {
-			console.log($header.outerHeight())
-
 			$window.on('load', function() {
-				console.log('Window On Load')
 				$banner.scrollex({
 					bottom:		$header.outerHeight(),
 					terminate:	function() { $header.removeClass('alt'); },
