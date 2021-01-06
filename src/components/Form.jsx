@@ -92,7 +92,7 @@ export default function Form() {
                             {...email} required
                         />
                     </div>
-                    <div class="col-12">
+                    <div className="col-12">
 												<input type="text" name="subject" placeholder="Subject" />
 											</div>
                     <div className="col-12">
@@ -105,9 +105,9 @@ export default function Form() {
                         ></textarea>
                     </div>
                 </div>
-                <div class="col-12"><ul className="buttons">
+                <div className="col-12"><ul className="buttons">
                     <li>
-                        <input type="submit" class="special" value="Send Message" />
+                        <input type="submit" className="special" value="Send Message" />
                     </li>
                 </ul></div>
                 
