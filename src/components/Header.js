@@ -7,9 +7,12 @@ import { Navbar, Content, Footer } from '../styles'
 export default () => {
   const rendersCount = useRef(0)
   var bannerHeight = 0
-  if (document.getElementById('banner')){
-	  bannerHeight = document.getElementById('banner').clientHeight
+  if (typeof document !== 'undefined'){
+    if (document.getElementById('banner')){
+      bannerHeight = document.getElementById('banner').clientHeight
+    }
   }
+  
   const [hideOnScroll, setHideOnScroll] = useState(bannerHeight > 0)
   useScrollPosition(
     ({ prevPos, currPos }) => {
