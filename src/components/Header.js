@@ -5,13 +5,17 @@ import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import { Navbar, Content, Footer } from '../styles'
 
 export default () => {
-  const [hideOnScroll, setHideOnScroll] = useState(false)
   const rendersCount = useRef(0)
-
+  var bannerHeight = 0
+  if (document.getElementById('banner')){
+	  bannerHeight = document.getElementById('banner').clientHeight
+  }
+  const [hideOnScroll, setHideOnScroll] = useState(bannerHeight > 0)
   useScrollPosition(
     ({ prevPos, currPos }) => {
-      const isShow = currPos.y > prevPos.y
-      if (currPos.y > -508) {
+	  const isShow = currPos.y > prevPos.y
+	  console.log("CurrPoss Y:", -currPos.y)
+      if (-currPos.y < bannerHeight) {
         setHideOnScroll(false)
       } else {
         setHideOnScroll(true)
@@ -22,13 +26,14 @@ export default () => {
     false,
     300
   )
+
 return useMemo( () => (
   <Navbar show={hideOnScroll}>
   <header id="header">
 					<h1 id="logo"><a href="#">Twenty <span>by HTML5 UP</span></a></h1>
 					<nav id="nav">
 						<ul>
-							<li className="current"><a href="#">Welcome</a></li>
+							<li className="current"><a href="/">Welcome</a></li>
 							<li className="submenu">
 								<a href="#">Layouts</a>
 								<ul>
@@ -48,7 +53,7 @@ return useMemo( () => (
 									</li>
 								</ul>
 							</li>
-							<li><a href="#" className="button primary">Sign Up</a></li>
+							<li><a href="/contact" className="button primary">Sign Up</a></li>
 						</ul>
 					</nav>
   </header>

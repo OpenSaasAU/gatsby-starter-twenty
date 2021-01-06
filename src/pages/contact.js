@@ -13,14 +13,14 @@ const ContactPage = ({ data }) => {
         <meta name="description" content={data.site.siteMetadata.description} />
     </Helmet>
     <article id="main">
-    <section class="wrapper style4 special container medium">
+    <section className="wrapper style4 special container medium">
 
-					<header class="special container">
-						<span class="icon solid fa-envelope"></span>
+					<header className="special container">
+						<span className="icon solid fa-envelope"></span>
 						<h2>Get In Touch</h2>
 						<p>Use the form below to give /dev/null a piece of your mind.</p>
 					</header>
-						<section class="wrapper style4 special container medium"></section>
+						<section className="wrapper style4 special container medium"></section>
     <Form />
     </section>
 
