@@ -37,15 +37,14 @@ const IndexPage = ({ data }) => {
 
 					<header className="special container">
 						<span className="icon solid fa-chart-bar"></span>
-						<h2>As this is my <strong>twentieth</strong> freebie for HTML5 UP
+						<h2>This is the <strong>Twenty</strong> theme from HTML5 UP
 						<br />
-						I decided to give it a really creative name.</h2>
-						<p>Turns out <strong>Twenty</strong> was the best I could come up with. Anyway, lame name aside,
+						converted to gatsby and running on Azure Static webapps</h2>
+						<p>Checkout the code on <a href="https://github.com/OpenSaasAU/gatsby-starter-twenty"><strong>Opensaas</strong> Github</a>
 						<br />
-						it's minimally designed, fully responsive, built on HTML5/CSS3,
-						and, like all my stuff,
+						Or to get started run 'gatsby new my-gatsby-project https://github.com/opensaasau/gatsby-starter-twenty'
 						<br />
-						released for free under the <a href="http://html5up.net/license">Creative Commons Attribution 3.0</a> license. Have fun!</p>
+						Have fun!</p>
 					</header>
 
 						<section className="wrapper style2 container special-alt">
