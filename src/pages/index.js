@@ -42,7 +42,7 @@ const IndexPage = ({ data }) => {
 						converted to gatsby and running on Azure Static webapps</h2>
 						<p>Checkout the code on <a href="https://github.com/OpenSaasAU/gatsby-starter-twenty"><strong>Opensaas</strong> Github</a>
 						<br />
-						Or to get started run 'gatsby new my-gatsby-project https://github.com/opensaasau/gatsby-starter-twenty'
+						Or to get started run <br />'gatsby new my-gatsby-project https://github.com/opensaasau/gatsby-starter-twenty'
 						<br />
 						Have fun!</p>
 					</header>

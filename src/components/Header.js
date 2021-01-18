@@ -2,7 +2,7 @@
 import React, { useState, useRef, useMemo, Fragment } from 'react'
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 
-import { Navbar, Content, Footer } from '../styles'
+import { Navbar } from '../styles'
 
 export default () => {
   const rendersCount = useRef(0)
@@ -17,7 +17,6 @@ export default () => {
   useScrollPosition(
     ({ prevPos, currPos }) => {
 	  const isShow = currPos.y > prevPos.y
-	  console.log("CurrPoss Y:", -currPos.y)
       if (-currPos.y < bannerHeight) {
         setHideOnScroll(false)
       } else {
